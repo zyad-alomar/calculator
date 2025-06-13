@@ -18,6 +18,10 @@ for(let i = 0; i<num.length;i++){
   }
 }
 
+  if(n[0]=="-"){
+  n[1] = "-"+n[1];
+  n.shift();
+}
 
 let total = 0;
 let counterP = 0;
@@ -110,6 +114,4 @@ operators.forEach((op)=>{
     equal.addEventListener("click",()=>{
     mom.textContent = calculation([...screenP.textContent]);
     screenP.textContent = mom.textContent;
-   
-
 });
