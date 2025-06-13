@@ -6,6 +6,7 @@
 }
 body{
     width: 100%;
+    background-color: darkslategrey;
 }
 
 .title{
@@ -48,6 +49,17 @@ body{
     border-radius: 30px;
     background-color: lightcyan;
     border: black solid 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    
+
+}
+
+
+.screen p {
+    margin-left: 5px;
+    font-size: xx-large;
 }
 
 main{
