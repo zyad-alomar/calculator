@@ -16,7 +16,7 @@ for(let i = 0; i<num.length;i++){
   if(i == num.length-1){
     n.push(s)
   }
-}
+}  
 
   if(n[0]=="-"){
   n[1] = "-"+n[1];
@@ -28,7 +28,7 @@ let counterP = 0;
 let counterMul = 0;
 let counterMin = 0;
 let counterD = 0;
-// counter =0 while its the last operation so its fucked
+
 for(let i = 0;i<n.length;i++){
    if(n[i]=="+" && counterP == 0){
          total = total + Number(n[i-1]); 
@@ -79,7 +79,6 @@ for(let i = 0;i<n.length;i++){
     return "error";
   }
 }
-console.log(n)
   return total;
 }
 
@@ -90,15 +89,20 @@ let numbers = document.querySelectorAll("#number");
 let operators = document.querySelectorAll("#operator");
 let screen = document.querySelector(".screen");
 let screenP = document.createElement("p");
-
+let AC = document.querySelector("#Ac");
+let Del = document.querySelector("#Del");
 let equal = document.querySelector(".equal");
 
+let body = document.querySelector(".body");
 numbers.forEach((num)=>{
     num.addEventListener("click",()=>{
         let text1 = document.createTextNode(`${num.textContent}`);
         screenP.appendChild(text1);
         screen.appendChild(screenP);
-   console.log(screen.textContent.length)
+            if([...screenP.textContent].length > 14){
+              screenP.style.fontSize = "medium";
+            }
+
     });
 });
 
@@ -114,4 +118,14 @@ operators.forEach((op)=>{
     equal.addEventListener("click",()=>{
     mom.textContent = calculation([...screenP.textContent]);
     screenP.textContent = mom.textContent;
+});
+
+AC.addEventListener("click",()=>{
+  screenP.textContent = "";
+});
+Del.addEventListener("click",()=>{
+  
+  let non = [...screenP.textContent];
+  non.pop();
+  screenP.textContent = non.join("");
 });
